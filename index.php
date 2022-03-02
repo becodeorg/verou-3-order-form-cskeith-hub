@@ -52,20 +52,39 @@ $totalValue = 0;
 function validate()
 {
     // This function will send a list of invalid fields back
+    $emailError = 'Please Fill in Email';
+    $streetError = 'Please Fill in Street';
+    $streetNumError = 'Please Fill in Street Number';
+    $cityError = 'Please Fill in City';
+    $zipCodeError = 'please fill ZipCode';
 
-   if(isset($_POST['email']))
+    $errorList = [];
+    // TODO find a way to display errors in field
+   if(!isset($_POST['email']))
    {
-       echo $_POST['email'];
+       echo $emailError;
+    
+       $errorList[] = $emailError;
    } 
-   else if(!isset($_POST['email']))
+   if(!isset($_POST['street']))
    {
-       echo 'Please Add email';
+       echo $streetError;
    }
-  
+   if(!isset($_POST['streetnumber']))
+   {
+       echo $streetNumError;
+   }
+   if(!isset($_POST['city']))
+   {
+       echo $cityError;
+   }
+   if(!isset($_POST['zipcode']))
+   {
+       echo $zipCodeError;
+   }
+
    
-
-
-    return ;
+    return $errorList ;
 }
 
 validate();
