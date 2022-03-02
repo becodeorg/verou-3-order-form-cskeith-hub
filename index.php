@@ -52,41 +52,43 @@ $totalValue = 0;
 function validate()
 {
     // This function will send a list of invalid fields back
-    $emailError = 'Please Fill in Email';
-    $streetError = 'Please Fill in Street';
-    $streetNumError = 'Please Fill in Street Number';
-    $cityError = 'Please Fill in City';
-    $zipCodeError = 'please fill ZipCode';
+    $email = $_POST['email']??''; // create POST Variables
+    $street = $_POST['street']??'';
+    $streetNum = $_POST['streetnumber']??'';
+    $city = $_POST['city']??'';
+    $zipcode = $_POST['zipcode']??'';
 
-    $errorList = [];
+    $errors = []; // create an Empty array for errors
+
     // TODO find a way to display errors in field
-   if(!isset($_POST['email']))
-   {
-       echo $emailError;
-    
-       $errorList[] = $emailError;
-   } 
-   if(!isset($_POST['street']))
-   {
-       echo $streetError;
-   }
-   if(!isset($_POST['streetnumber']))
-   {
-       echo $streetNumError;
-   }
-   if(!isset($_POST['city']))
-   {
-       echo $cityError;
-   }
-   if(!isset($_POST['zipcode']))
-   {
-       echo $zipCodeError;
-   }
-
-   
-    return $errorList ;
+    if ($_SERVER['REQUEST_METHOD'] == 'POST')
+    {
+        if(empty($email))
+        {
+         echo $errors['email'][] = ' Please fill in Email. ';
+        } 
+        if(empty($street))
+        {
+         echo $errors['street'][] = ' Please fill in Street. ';
+        } 
+        if(empty($streetNum))
+        {
+         echo $errors['streetNum'][] = ' Please fill in streetNumber. ';
+        } 
+        if(empty($city))
+        {
+         echo $errors['city'][] = ' Please fill in City. ';
+        } 
+        if(empty($zipcode))
+        {
+         echo $errors['zipcode'][] = ' Please fill in Zipcode. ';
+        } 
+        
+    }
+  
+  
+    return $errors;
 }
-
 validate();
 
 function handleForm()

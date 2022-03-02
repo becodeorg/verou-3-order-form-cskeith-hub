@@ -28,15 +28,12 @@
     </nav>
     */ ?>
     <form method="post">
+        
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="email">E-mail:</label>
                 <input type="email" id="email" name="email" class="form-control">
             </div>
-            <?php if(!isset($_POST['email'])) : ?>
-                <div class="emailError"><?= $_SESSION ?></div>
-            <?php endif;?>
-            <div></div>
         </div>
 
         <fieldset>
