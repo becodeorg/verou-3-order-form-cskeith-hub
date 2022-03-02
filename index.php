@@ -37,7 +37,7 @@ function whatIsHappening() {
 whatIsHappening();
 
 // TODO: provide some products (you may overwrite the example)
-$products = [
+$games = [
     ['name' => 'World of Warcraft', 'price' => 14.5],
     ['name' => 'Rocket League', 'price' => 30],
     ['name' => 'Call of Duty', 'price' => 65],
@@ -45,18 +45,30 @@ $products = [
     ['name' => 'Pong Arcade', 'price' => 7],
 ];
 
+$products = $games;
+
 $totalValue = 0;
 
-function validate($_POST)
+function validate()
 {
     // This function will send a list of invalid fields back
-    if (array(5)["email"] = FALSE)
-    {
-        echo = "Please Enter Email"
-    }
 
-    return [];
+   if(isset($_POST['email']))
+   {
+       echo $_POST['email'];
+   } 
+   else if(!isset($_POST['email']))
+   {
+       echo 'Please Add email';
+   }
+  
+   
+
+
+    return ;
 }
+
+validate();
 
 function handleForm()
 {
