@@ -56,7 +56,7 @@ function validate()
     $street = $_POST['street']??'';
     $streetNum = $_POST['streetnumber']??'';
     $city = $_POST['city']??'';
-    $zipcode = $_POST['zipcode']??'';
+    $zipCode = $_POST['zipcode']??'';
 
     $errors = []; // create an Empty array for errors
 
@@ -65,36 +65,22 @@ function validate()
     {
         if(empty($email))
         {
-         echo $errors['email'][] = ' Please fill in Email. ';
-        } 
-        if(empty($street))
-        {
-         echo $errors['street'][] = ' Please fill in Street. ';
-        } 
-        if(empty($streetNum))
-        {
-         echo $errors['streetNum'][] = ' Please fill in streetNumber. ';
-        } 
-        if(empty($city))
-        {
-         echo $errors['city'][] = ' Please fill in City. ';
-        } 
-        if(empty($zipcode))
-        {
-         echo $errors['zipcode'][] = ' Please fill in Zipcode. ';
-        } 
-        
+            $emailError = ' Please fill in Email. ';
+            
+            $errors = $emailError;
+            echo $errors;
+        }  
     }
   
   
     return $errors;
 }
-validate();
+
 
 function handleForm()
 {
     // TODO: form related tasks (step 1)
-
+   
     // Validation (step 2)
     $invalidFields = validate();
     if (!empty($invalidFields)) {
@@ -103,11 +89,13 @@ function handleForm()
         // TODO: handle successful submission
     }
 }
+handleForm($products, $totalValue);
 
 // TODO: replace this if by an actual check
-$formSubmitted = false;
+$formSubmitted = !empty($_POST);
+$_SESSION = $_POST;
 if ($formSubmitted) {
-    handleForm();
+    handleForm($products, $totalValue);
 }
 
 require 'form-view.php';

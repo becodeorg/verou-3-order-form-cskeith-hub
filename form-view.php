@@ -34,6 +34,9 @@
                 <label for="email">E-mail:</label>
                 <input type="email" id="email" name="email" class="form-control">
             </div>
+            <?php if(!isset($email)) : ?>
+                <div class="errorEmail">something<?= $errors ?></div>  
+                <?php endif;?> 
         </div>
 
         <fieldset>
