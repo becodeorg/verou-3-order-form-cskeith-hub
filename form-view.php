@@ -36,10 +36,11 @@
             <p><?= $streetNumberConfirm ?></p>
             <p><?= $cityConfirm ?></p>
             <p><?= $zipCodeConfirm ?></p>
-            <p><?= $products[$game]['name'] ?></p>
-
-            
-
+            <p>
+                <?php for($i = 0; $i < count($items); $i++) : ?>
+                    <?= $products[$i]['name']; ?>, 
+                <?php endfor; ?>
+            </p>
         <?php endif; ?>
 
         

@@ -47,12 +47,12 @@ $products = [
 
 $items = $_POST['products'];
 
-foreach($items as $game => $item)
+foreach($items as $key => $item)
 {
     // var_dump($items); // gives full array * items
     //var_dump($key); // gets array position of an item
    //var_dump($item); // give value of item (checked in the check box)
-    var_dump($products[$game]['name']); // give array out  selected games 
+    var_dump($products[$key]['name']); // give array out  selected games 
 }
 
 
