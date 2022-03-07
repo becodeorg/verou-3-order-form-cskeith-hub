@@ -36,10 +36,11 @@
             <p><?= $streetNumberConfirm ?></p>
             <p><?= $cityConfirm ?></p>
             <p><?= $zipCodeConfirm ?></p>
-            <p><?= $orderProducts ?></p>
+            <p><?= ?></p>
 
         <?php endif; ?>
 
+        
         
         <div class="form-row">
             <div class="form-group col-md-6">

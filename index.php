@@ -37,13 +37,23 @@ function whatIsHappening() {
 //whatIsHappening();
 
 // TODO: provide some products (you may overwrite the example)
+
 $products = [
     ['name' => 'World of Warcraft', 'price' => 14.5],
-    ['name' => 'ark', 'price' => 30],   
+    ['name' => 'Ark', 'price' => 30], 
+    ['name' => 'Call of Duty', 'price' => 60],   
+
 ];
 
+$items = $_POST['products'];
 
-
+foreach($items as $game => $item)
+{
+    // var_dump($items); // gives full array * items
+    //var_dump($key); // gets array position of an item
+   //var_dump($item); // give value of item (checked in the check box)
+    var_dump($products[$game]); // give array out $products selected games 
+}
 
 
 
@@ -114,7 +124,6 @@ if ($formSubmitted) {
     $streetNumberConfirm = $_POST['streetnumber'];
     $cityConfirm = $_POST['city'];
     $zipCodeConfirm = $_POST['zipcode'];
-    $orderProducts[] = $_POST['products'];
 }
 
 
