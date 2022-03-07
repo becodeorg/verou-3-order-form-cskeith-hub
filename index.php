@@ -34,7 +34,7 @@ function whatIsHappening() {
     echo '<h2>$_SESSION</h2>';
     var_dump($_SESSION);
 }
-whatIsHappening();
+//whatIsHappening();
 
 // TODO: provide some products (you may overwrite the example)
 $games = [
@@ -49,37 +49,32 @@ $products = $games;
 
 $totalValue = 0;
 
+
+
 function validate()
 {
     // This function will send a list of invalid fields back
-    $email = $_POST['email']??''; // create POST Variables
-    $street = $_POST['street']??'';
-    $streetNum = $_POST['streetnumber']??'';
-    $city = $_POST['city']??'';
-    $zipCode = $_POST['zipcode']??'';
 
-    $errors = []; // create an Empty array for errors
+    
+    $errors = [] ;
 
     // TODO find a way to display errors in field
     if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
-        if(empty($email))
+        if(empty($_POST['email']))
         {
             $emailError = ' Please fill in Email. ';
-            
-            $errors = $emailError;
-            echo $errors;
-        }  
+            echo $emailError;
+        } 
     }
-  
-  
-    return $errors;
+    return $errors;    
 }
-
 
 function handleForm()
 {
     // TODO: form related tasks (step 1)
+    $message = 'Your order will be ready for sending soon!';
+    return $message;
    
     // Validation (step 2)
     $invalidFields = validate();
@@ -89,13 +84,13 @@ function handleForm()
         // TODO: handle successful submission
     }
 }
-handleForm($products, $totalValue);
 
 // TODO: replace this if by an actual check
 $formSubmitted = !empty($_POST);
-$_SESSION = $_POST;
 if ($formSubmitted) {
-    handleForm($products, $totalValue);
+    $message = handleForm();
 }
+
+
 
 require 'form-view.php';

@@ -28,15 +28,18 @@
     </nav>
     */ ?>
     <form method="post">
+
+        <?php if(!empty($message)) : ?>
+            <p><?= $message ?></p>
+        <?php endif; ?>
         
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" class="form-control">
+                <input type="email" id="email" name="email" class="form-control" placeholder="<?php echo $emailError ?>">
+        
             </div>
-            <?php if(!isset($email)) : ?>
-                <div class="errorEmail">something<?= $errors ?></div>  
-                <?php endif;?> 
+            <div></div>
         </div>
 
         <fieldset>
