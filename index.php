@@ -52,7 +52,7 @@ foreach($items as $game => $item)
     // var_dump($items); // gives full array * items
     //var_dump($key); // gets array position of an item
    //var_dump($item); // give value of item (checked in the check box)
-    var_dump($products[$game]); // give array out $products selected games 
+    var_dump($products[$game]['name']); // give array out  selected games 
 }
 
 

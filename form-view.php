@@ -36,7 +36,9 @@
             <p><?= $streetNumberConfirm ?></p>
             <p><?= $cityConfirm ?></p>
             <p><?= $zipCodeConfirm ?></p>
-            <p><?= ?></p>
+            <p><?= $products[$game]['name'] ?></p>
+
+            
 
         <?php endif; ?>
 
