@@ -31,12 +31,20 @@
 
         <?php if(!empty($message)) : ?>
             <p><?= $message ?></p>
+            <p><?= $emailConfirm?></p>
+            <p><?= $streetConfirm ?></p>
+            <p><?= $streetNumberConfirm ?></p>
+            <p><?= $cityConfirm ?></p>
+            <p><?= $zipCodeConfirm ?></p>
+            <p><?= $orderProducts ?></p>
+
         <?php endif; ?>
+
         
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" class="form-control" placeholder="<?php echo $emailError ?>">
+                <input type="email" id="email" name="email" class="form-control">
         
             </div>
             <div></div>
@@ -72,7 +80,7 @@
             <?php foreach ($products as $i => $product): ?>
                 <label>
 					<?php // <?= is equal to <?php echo ?>
-                    <input type="checkbox" value="1" name="products[<? echo $i ?>]"/> <?php echo $product['name'] ?> -
+                    <input type="checkbox" value="1" name="products[<?=  $i ?>]"/> <?php echo $product['name'] ?> -
                     &euro; <?= number_format($product['price'], 2) ?></label><br />
             <?php endforeach; ?>
         </fieldset>

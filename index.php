@@ -37,45 +37,65 @@ function whatIsHappening() {
 //whatIsHappening();
 
 // TODO: provide some products (you may overwrite the example)
-$games = [
+$products = [
     ['name' => 'World of Warcraft', 'price' => 14.5],
-    ['name' => 'Rocket League', 'price' => 30],
-    ['name' => 'Call of Duty', 'price' => 65],
-    ['name' => 'Age of Empires 3', 'price' => 20],
-    ['name' => 'Pong Arcade', 'price' => 7],
+    ['name' => 'ark', 'price' => 30],   
 ];
 
-$products = $games;
+
+
+
+
 
 $totalValue = 0;
+
+
 
 
 
 function validate()
 {
     // This function will send a list of invalid fields back
-
-    
     $errors = [] ;
-
+    $confirm = [] ;
     // TODO find a way to display errors in field
     if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
-        if(empty($_POST['email']))
+        if(empty($_POST['email'] ))
         {
             $emailError = ' Please fill in Email. ';
-            echo $emailError;
+            $errors = $emailError;
+            return $errors;
         } 
+        else
+        {
+            $email = $_POST['email'];
+            $confirm = $email;
+            return $confirm;
+        }
+
+        if(empty($_POST['street']))
+        {
+            $streetError = ' Please fill in Street name. ';
+            $errors = $streetError;
+            return $errors;
+        } 
+        else
+        {
+            $street = $_POST['street'];
+            $confirm = $street;
+            return $confirm;
+        }
     }
-    return $errors;    
+      
 }
 
 function handleForm()
 {
     // TODO: form related tasks (step 1)
-    $message = 'Your order will be ready for sending soon!';
+    $message = 'Your order will be send to:';
+    
     return $message;
-   
     // Validation (step 2)
     $invalidFields = validate();
     if (!empty($invalidFields)) {
@@ -89,6 +109,12 @@ function handleForm()
 $formSubmitted = !empty($_POST);
 if ($formSubmitted) {
     $message = handleForm();
+    $emailConfirm = $_POST['email'];
+    $streetConfirm = $_POST['street'];
+    $streetNumberConfirm = $_POST['streetnumber'];
+    $cityConfirm = $_POST['city'];
+    $zipCodeConfirm = $_POST['zipcode'];
+    $orderProducts[] = $_POST['products'];
 }
 
 
